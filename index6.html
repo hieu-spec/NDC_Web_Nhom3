@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>CLB Ngoại khóa - THPT Nguyễn Đình Chiểu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* ===== Banner ===== */
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 260px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 12px 18px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #8b1e1e;
+        }
+
+        /* ===== SLOGAN ===== */
+        .slogan-section {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .slogan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .slogan-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .slogan-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .slogan-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #2e7d32;
+        }
+
+        .slogan-box h3 {
+            font-size: 18px;
+            color: #7a1f1f;
+            margin-bottom: 10px;
+        }
+
+        .slogan-box p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* ===== Nội dung CLB ===== */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .club {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: #ffffff;
+            padding: 25px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .club.reverse {
+            direction: rtl;
+        }
+
+        .club.reverse > * {
+            direction: ltr;
+        }
+
+        .club h2 a {
+            text-decoration: none;
+            font-size: 22px;
+            color: #7a1f1f;
+            transition: color 0.3s;
+        }
+
+        .club h2 a:hover {
+            color: #2e7d32;
+        }
+
+        .club p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .club-images img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background-color: #2e7d32;
+            color: #ffffff;
+            padding: 35px 40px;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        footer p, footer li {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        footer ul {
+            padding-left: 20px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #dcedc8;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .slogan-grid,
+            .club,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ===== Hiệu ứng CLB hover ===== */
+.club {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border-radius: 14px;
+}
+
+.club:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+}
+
+/* Click được ảnh */
+.club-images a {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Hiệu ứng ảnh */
+.club-images img {
+    transition: transform 0.4s ease;
+}
+
+.club:hover .club-images img {
+    transform: scale(1.08);
+}
+
+/* Con trỏ chuột */
+.club-images a {
+    cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- ===== Banner ===== -->
+<div class="banner">
+    <img src="nen.jpg" alt="Banner CLB">
+    <div class="banner-text">
+        Câu lạc bộ ngoại khóa<br>
+        Trường Trung học Phổ thông Nguyễn Đình Chiểu
+    </div>
+</div>
+
+<!-- ===== Slogan ===== -->
+<section class="slogan-section">
+    <div class="slogan-grid">
+
+        <div class="slogan-box">
+           
+            <h3>Chủ động tham gia</h3>
+            <p>Mỗi hoạt động là cơ hội để học sinh rèn luyện kỹ năng và phát huy tinh thần trách nhiệm.</p>
+        </div>
+
+        <div class="slogan-box">
+            
+            <h3>Nuôi dưỡng đam mê</h3>
+            <p>Tạo môi trường để học sinh khám phá sở thích, khẳng định cá tính và gắn kết tập thể.</p>
+        </div>
+
+        <div class="slogan-box">
+            
+            <h3>Bứt phá bản thân</h3>
+            <p>Giúp học sinh tự tin thể hiện năng lực, từng bước trưởng thành và hoàn thiện chính mình.</p>
+        </div>
+
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- CLB THIỆN NGUYỆN -->
+    <div class="club">
+        <div>
+            <h2>CLB Thiện Nguyện</h2>
+            <p>Tham gia hoạt động tình nguyện, giúp đỡ cộng đồng và lan tỏa tinh thần nhân ái.</p>
+        </div>
+
+        <div class="club-images">
+            <a href="tn.html" target="_blank">
+                <img src="tn.jpg" alt="CLB Thiện Nguyện">
+            </a>
+        </div>
+    </div>
+
+    <!-- CLB THỂ THAO -->
+    <div class="club reverse">
+        <div>
+            <h2>CLB Thể thao</h2>
+            <p>Rèn luyện sức khỏe, phát triển thể chất và tinh thần đồng đội.</p>
+        </div>
+
+        <div class="club-images">
+            <a href="tt.html" target="_blank">
+                <img src="tt.jpg" alt="CLB Thể thao">
+            </a>
+        </div>
+    </div>
+
+    <!-- CLB TRUYỀN THÔNG -->
+    <div class="club">
+        <div>
+            <h2>CLB Truyền Thông</h2>
+            <p>Phát triển kỹ năng viết bài, chụp ảnh, quay dựng video và làm việc nhóm.</p>
+        </div>
+
+        <div class="club-images">
+            <a href="tto.html" target="_blank">
+                <img src="tto.jpg" alt="CLB Truyền Thông">
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ===== Footer ===== -->
+<footer>
+    <div class="footer-container">
+
+        <div>
+            <h3>Liên hệ</h3>
+            <p>📞 0275 382 2568</p>
+            <p>
+                🌐 <a href="https://thptndc.edu.vn/" target="_blank">
+                Trường THPT Nguyễn Đình Chiểu
+                </a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Khám phá thêm</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/share/1JvWXsnrjJ/" target="_blank">CLB Thể thao</a></li>
+                <li><a href="https://www.facebook.com/share/1SN7RuSovE/" target="_blank">CLB Truyền thông</a></li>
+                <li><a href="https://www.facebook.com/share/17zFSaPiWr/" target="_blank">CLB Thiện nguyện</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

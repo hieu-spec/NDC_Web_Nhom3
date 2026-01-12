@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>CLB Truyền Thông</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f6f4fa;
+    color: #2c1b47;
+}
+header {
+    background: #6a1b9a;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.section {
+    margin-bottom: 40px;
+}
+.images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.images img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #ccc;
+}
+video {
+    width: 100%;
+    margin-top: 15px;
+}
+/* ===== Footer ===== */
+footer {
+    background-color: #4a148c; /* tím đậm */
+    color: #ffffff;
+    padding: 30px 40px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+footer p,
+footer li {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer a {
+    color: #e1bee7; /* tím nhạt */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CLB Truyền Thông</h1>
+    <p>Sáng tạo nội dung – Kết nối cộng đồng</p>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Giới thiệu</h2>
+        <p>
+            CLB Truyền thông là nơi học sinh học hỏi kỹ năng viết bài, chụp ảnh,
+            quay dựng video và xây dựng nội dung truyền thông hiện đại.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Sản phẩm truyền thông</h2>
+        <div class="images">
+            <img src="tto2.jpg">
+            <img src="tto3.jpg">
+        </div>
+     <hr>
+      <center>
+    <iframe 
+        src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F803765695387687%2F&show_text=false&width=560&t=0"
+        width="560"
+        height="314"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+</center>
+
+    </div>
+
+</div>
+
+<!-- ===== Footer ===== -->
+
+
+<footer>
+    <div class="footer-container">
+
+        <div>
+            <h3>Liên hệ:</h3>
+            <p>📞 SĐT: 0275 382 2568</p>
+            <p>
+                🌐 Website:
+                <a href="https://thptndc.edu.vn/" target="_blank">
+                    Trường THPT Nguyễn Đình Chiểu
+                </a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Khám phá thêm:</h3>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/share/1JvWXsnrjJ/" target="_blank">
+                        CLB Thể thao
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/share/1SN7RuSovE/" target="_blank">
+                        CLB Truyền thông
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/share/17zFSaPiWr/" target="_blank">
+                        CLB Thiện nguyện
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+
+
+</body>
+</html>
