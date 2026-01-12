@@ -1,170 +1,211 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>CLB Thể Thao</title>
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #f2f7fc;
-    color: #1e3a5f;
-}
-header {
-    background: #1976d2;
-    color: white;
-    padding: 40px;
-    text-align: center;
-}
-.container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-.section {
-    margin-bottom: 40px;
-}
-.images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-.images img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background: #ccc;
-}
-video {
-    width: 100%;
-    margin-top: 15px;
-}
-/* ===== Footer ===== */
-footer {
-    background-color: #0d47a1; /* xanh dương đậm */
-    color: #ffffff;
-    padding: 30px 40px;
-    margin-top: 50px;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CLB Thể Thao</title>
 
-.footer-container {
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
+    body{background:#f5f5f5;color:#333}
 
-footer h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-footer p,
-footer li {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-footer ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-footer a {
-    color: #bbdefb; /* xanh nhạt */
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
+    /* ===== Hero ===== */
+    .hero{position:relative;height:280px;overflow:hidden}
+    .hero img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.1)}
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.60), rgba(0,0,0,.08));
     }
-}
+    .hero-content{
+      position:absolute;left:22px;bottom:18px;right:22px;
+      color:#fff;z-index:2;
+      display:flex;flex-direction:column;gap:10px;
+      max-width:1100px;margin:auto;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      width:fit-content;
+      padding:7px 12px;border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+      font-weight:800;font-size:13px;
+    }
+    h1{font-size:32px;line-height:1.15;text-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .back{
+      position:absolute;top:16px;left:16px;z-index:3;
+      text-decoration:none;
+      background:rgba(255,255,255,.92);
+      color:#222;font-weight:800;font-size:13px;
+      padding:10px 12px;border-radius:14px;
+      box-shadow:0 10px 24px rgba(0,0,0,.20);
+    }
 
-</style>
+    /* ===== Layout ===== */
+    .wrap{max-width:1050px;margin:46px auto;padding:0 20px}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+    .card{
+      background:#fff;border-radius:22px;
+      box-shadow:0 12px 30px rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .card-inner{padding:22px}
+    .card h2{font-size:20px;color:#7a1f1f;margin-bottom:10px}
+    .card p{font-size:15px;line-height:1.75;color:#444}
+
+    /* highlight */
+    .highlight{
+      background:linear-gradient(120deg, rgba(25,118,210,.10), rgba(0,0,0,.03));
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .kpi{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px
+    }
+    .kpi .box{
+      background:rgba(255,255,255,.85);
+      border-radius:16px;padding:14px 12px;
+      border:1px solid rgba(0,0,0,.06);
+      text-align:center;
+    }
+    .kpi b{display:block;font-size:18px;color:#2e7d32}
+    .kpi span{font-size:12px;color:#555}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery img{
+      width:100%;height:160px;object-fit:cover;border-radius:16px;
+      border:1px solid rgba(0,0,0,.08);
+      transition:.25s;
+    }
+    .gallery img:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+
+    /* video */
+    .video{padding:0}
+    .video .frame{
+      position:relative;width:100%;padding-top:56.25%;
+      background:#000
+    }
+    .video iframe{
+      position:absolute;inset:0;width:100%;height:100%;
+      border:0;
+    }
+
+    /* ===== Footer (đồng bộ site) ===== */
+    footer{
+      margin-top:60px;
+      background:linear-gradient(135deg,#1b5e20,#2e7d32);
+      color:#fff;padding:44px 24px;
+      position:relative;overflow:hidden;
+    }
+    footer::before{
+      content:"";position:absolute;inset:-140px auto auto -140px;
+      width:280px;height:280px;border-radius:50%;
+      background:rgba(255,255,255,.10);
+      filter:blur(2px);
+    }
+    footer::after{
+      content:"";position:absolute;right:-160px;bottom:-160px;
+      width:320px;height:320px;border-radius:50%;
+      background:rgba(0,0,0,.14);
+      filter:blur(2px);
+    }
+    .footer-container{
+      max-width:1050px;margin:auto;
+      display:grid;grid-template-columns:1.2fr .8fr;gap:30px;
+      position:relative;z-index:2;
+    }
+    footer h3{margin-bottom:14px;font-size:18px}
+    footer p, footer li{font-size:14px;line-height:1.9}
+    footer ul{padding-left:18px}
+    footer a{color:#eaffea;font-weight:700;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media(max-width:900px){
+      h1{font-size:26px}
+      .grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .kpi{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
+  <section class="hero">
+    <a class="back" href="index.html">← Quay lại trang CLB</a>
+    <img src="tt.jpg" alt="CLB Thể Thao">
+    <div class="hero-content">
+      <div class="badge">🏆 Sức khỏe & đồng đội</div>
+      <h1>CLB Thể Thao</h1>
+    </div>
+  </section>
 
-<header>
-    <h1>CLB Thể Thao</h1>
-    <p>Rèn luyện thể chất – Nâng cao tinh thần</p>
-</header>
+  <main class="wrap">
+    <div class="grid">
+      <!-- Giới thiệu -->
+      <section class="card">
+        <div class="card-inner">
+          <h2>Giới thiệu</h2>
+          <p>
+CLB Thể thao tạo sân chơi lành mạnh giúp học sinh rèn luyện sức khỏe, phát triển tinh thần đồng đội và lối sống tích cực.
+<br><br>
+CLB tổ chức các buổi tập luyện, giao lưu, thi đấu nội bộ và tham gia giải phong trào.
+</p>
+        </div>
+      </section>
 
-<div class="container">
+      <!-- Highlights -->
+      <aside class="card highlight">
+        <div class="card-inner">
+          <h2>Điểm nổi bật</h2>
+          <p>Không chỉ tham gia hoạt động, bạn sẽ được rèn luyện kỹ năng và tạo kỷ niệm “đỉnh của chóp”.</p>
 
-    <div class="section">
-        <h2>Giới thiệu</h2>
-        <p>
-            CLB Thể thao tạo sân chơi lành mạnh giúp học sinh rèn luyện sức khỏe,
-            phát triển tinh thần đồng đội và lối sống tích cực.
-        </p>
+          <div class="kpi">
+            <div class="box"><b>+Kỹ năng</b><span>Làm việc nhóm</span></div>
+            <div class="box"><b>+Tự tin</b><span>Giao tiếp</span></div>
+            <div class="box"><b>+Kỷ niệm</b><span>Bạn bè</span></div>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <div class="section">
-        <h2>Môn thể thao</h2>
-        <div class="images">
-            <img src="tt.jpg">
-            <img src="tt2.jpg">
-            <img src="tt3.jpg">
+    <!-- Hoạt động -->
+    <section class="card" style="margin-top:22px;">
+      <div class="card-inner">
+        <h2>Hoạt động tiêu biểu</h2>
+        <div class="gallery">
+          <img src="tt.jpg" alt="hoạt động"><img src="tt2.jpg" alt="hoạt động"><img src="tt3.jpg" alt="hoạt động">
         </div>
-     <hr>
-     <center>
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F836147665779816%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-    </center></div>
+      </div>
+    </section>
 
-</div>
+    <!-- Video -->
+    <section class="card video" style="margin-top:22px;">
+      <div class="frame">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F836147665779816%2F&show_text=false&width=560&t=0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
 
- <!-- ===== Footer ===== -->
-
-
-        <footer>
+  <footer>
     <div class="footer-container">
-
-        <div>
-            <h3>Liên hệ:</h3>
-            <p>📞 SĐT: 0275 382 2568</p>
-            <p>
-                🌐 Website:
-                <a href="https://thptndc.edu.vn/" target="_blank">
-                    Trường THPT Nguyễn Đình Chiểu
-                </a>
-            </p>
-        </div>
-
-        <div>
-            <h3>Khám phá thêm:</h3>
-            <ul>
-                <li>
-                    <a href="https://www.facebook.com/share/1JvWXsnrjJ/" target="_blank">
-                        CLB Thể thao
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/share/1SN7RuSovE/" target="_blank">
-                        CLB Truyền thông
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/share/17zFSaPiWr/" target="_blank">
-                        CLB Thiện nguyện
-                    </a>
-                </li>
-            </ul>
-        </div>
-
+      <div>
+        <h3>Liên hệ</h3>
+        <p>📞 0275 382 2568</p>
+        <p>🌐 <a href="https://thptndc.edu.vn/" target="_blank">Trường THPT Nguyễn Đình Chiểu</a></p>
+      </div>
+      <div>
+        <h3>Khám phá thêm</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/share/1JvWXsnrjJ/" target="_blank">CLB Thể thao</a></li>
+          <li><a href="https://www.facebook.com/share/1SN7RuSovE/" target="_blank">CLB Truyền thông</a></li>
+          <li><a href="https://www.facebook.com/share/17zFSaPiWr/" target="_blank">CLB Thiện nguyện</a></li>
+        </ul>
+      </div>
     </div>
-</footer>
-
-
-    
-
-
+  </footer>
 </body>
 </html>
